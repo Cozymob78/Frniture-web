@@ -208,7 +208,7 @@ header {
 
 .btn-phone-mobile:hover {
     transform: translateY(-1px);
-    box-shadow: 0 6px 15px rgba(33, 233, 22, 0.8);
+    box-shadow: 0 6px 15px rgba(3, 175, 49, 0.4);
 }
 
 /* Hero Section */
