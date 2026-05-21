@@ -105,17 +105,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-   // 5. Quote Form Submission
+   // 5. Quote Form Submission (Trimitere Reală + Animație)
 const form = document.querySelector('.quote-form');
 if (form) {
     const submitBtn = form.querySelector('button[type="submit"]');
     const feedback = document.querySelector('.form-feedback');
 
     form.addEventListener('submit', (e) => {
-        // Oprim trimiterea clasică pentru a trimite prin AJAX (Fetch) fără reîncărcarea paginii
+        // Oprim reîncărcarea paginii pentru a trimite datele în fundal (AJAX)
         e.preventDefault(); 
         
-        // Luăm valorile existente pentru validare
+        // Preluăm valorile pentru validarea rapidă
         const name = form.querySelector('#name').value.trim();
         const phone = form.querySelector('#phone').value.trim();
         
@@ -124,15 +124,15 @@ if (form) {
             return;
         }
 
-        // Feedback vizual pe butonul de trimitere
+        // Pornim feedback-ul vizual pe buton
         const originalText = submitBtn.innerHTML;
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<span style="display:inline-block; animation: spin 1s infinite linear; margin-right: 8px;">↻</span> Sending Request...';
 
-        // Colectăm automat toate datele din formular (inclusiv Access Key-ul Web3Forms)
+        // Colectăm automat toate datele introduse în HTML (inclusiv cheia Web3Forms)
         const formData = new FormData(form);
 
-        // Trimitem datele asincron direct către API-ul Web3Forms
+        // TRIMITEM DATELE REAL CĂTRE WEB3FORMS
         fetch('https://web3forms.com', {
             method: 'POST',
             body: formData
@@ -140,22 +140,21 @@ if (form) {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                // Dacă Web3Forms a primit mesajul cu succes
+                // Dacă emailul s-a trimis cu succes, arătăm mesajul verde
                 submitBtn.innerHTML = 'Request Sent Successfully!';
                 submitBtn.style.background = '#10b981';
                 
-                // Afișăm cardul de feedback
                 if (feedback) {
                     feedback.innerHTML = `<h4>✓ Quote Request Received!</h4><p style="margin-top:0.5rem; font-size:0.95rem;">Thank you, ${name}. We will review your request and contact you at <strong>${phone}</strong> or call you back from <strong>07465808079</strong> shortly.</p>`;
                     feedback.style.display = 'block';
                     feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
 
-                // Resetăm câmpurile formularului
+                // Resetăm câmpurile formularului pentru următorul client
                 form.reset();
             } else {
-                // Dacă Web3Forms returnează o eroare (ex: cheie greșită)
-                alert('Something went wrong. Please try again.');
+                // Dacă Web3Forms întoarce o eroare (ex: cheie greșită sau lipsă în HTML)
+                alert('Web3Forms Error: ' + data.message + '. Please check your Access Key.');
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
             }
@@ -167,7 +166,7 @@ if (form) {
             submitBtn.disabled = false;
         })
         .finally(() => {
-            // Readucem butonul la starea inițială după 5 secunde
+            // Indiferent de rezultat, butonul revine la starea inițială după 5 secunde
             setTimeout(() => {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
@@ -177,7 +176,22 @@ if (form) {
     });
 }
 
-// Înserare stil animat pentru spinner (Corectat structural)
+// Stilul pentru animația de rotație (spin) a iconiței ↻
+if (!document.getElementById('spin-style')) {
+    const style = document.createElement('style');
+    style.id = 'spin-style';
+    style.textContent = `
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+});
+
+// Spin animation helper styling
 const style = document.createElement('style');
 style.textContent = `
     @keyframes spin {
@@ -186,3 +200,4 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+.appendChild(style);
