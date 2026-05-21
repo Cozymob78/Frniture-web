@@ -791,11 +791,10 @@ section {
 }
 
 .contact-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  max-width: 1200px;
+  width:  100%;
+  margin: 0 auto;
 }
-
 .contact-info h2 {
     font-size: 3rem;
     margin-bottom: 1.5rem;
