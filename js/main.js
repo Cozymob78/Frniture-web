@@ -105,90 +105,54 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-   // 5. Quote Form Submission (Trimitere Reală + Animație)
-const form = document.querySelector('.quote-form');
-if (form) {
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const feedback = document.querySelector('.form-feedback');
+    // 5. Quote Form Submission Simulation
+    const form = document.querySelector('.quote-form');
+    if (form) {
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const feedback = document.querySelector('.form-feedback');
 
-    form.addEventListener('submit', (e) => {
-        // Oprim reîncărcarea paginii pentru a trimite datele în fundal (AJAX)
-        e.preventDefault(); 
-        
-        // Preluăm valorile pentru validarea rapidă
-        const name = form.querySelector('#name').value.trim();
-        const phone = form.querySelector('#phone').value.trim();
-        
-        if (!name || !phone) {
-            alert('Please enter your name and phone number so we can contact you.');
-            return;
-        }
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values for visual validation
+            const name = form.querySelector('#name').value.trim();
+            const phone = form.querySelector('#phone').value.trim();
+            
+            if (!name || !phone) {
+                alert('Please enter your name and phone number so we can contact you.');
+                return;
+            }
 
-        // Pornim feedback-ul vizual pe buton
-        const originalText = submitBtn.innerHTML;
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span style="display:inline-block; animation: spin 1s infinite linear; margin-right: 8px;">↻</span> Sending Request...';
+            // Visual feedback on submit button
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span style="display:inline-block; animation: spin 1s infinite linear; margin-right: 8px;">↻</span> Sending Request...';
 
-        // Colectăm automat toate datele introduse în HTML (inclusiv cheia Web3Forms)
-        const formData = new FormData(form);
-
-        // TRIMITEM DATELE REAL CĂTRE WEB3FORMS
-        fetch('https://web3forms.com', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Dacă emailul s-a trimis cu succes, arătăm mesajul verde
+            // Simulate server request delay
+            setTimeout(() => {
                 submitBtn.innerHTML = 'Request Sent Successfully!';
                 submitBtn.style.background = '#10b981';
                 
+                // Show feedback card
                 if (feedback) {
                     feedback.innerHTML = `<h4>✓ Quote Request Received!</h4><p style="margin-top:0.5rem; font-size:0.95rem;">Thank you, ${name}. We will review your request and contact you at <strong>${phone}</strong> or call you back from <strong>07465808079</strong> shortly.</p>`;
                     feedback.style.display = 'block';
                     feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
 
-                // Resetăm câmpurile formularului pentru următorul client
+                // Reset form fields
                 form.reset();
-            } else {
-                // Dacă Web3Forms întoarce o eroare (ex: cheie greșită sau lipsă în HTML)
-                alert('Web3Forms Error: ' + data.message + '. Please check your Access Key.');
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Network error. Please check your internet connection.');
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        })
-        .finally(() => {
-            // Indiferent de rezultat, butonul revine la starea inițială după 5 secunde
-            setTimeout(() => {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalText;
-                submitBtn.style.background = '';
-            }, 5000);
+
+                // Re-enable form after a while
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = '';
+                }, 5000);
+
+            }, 1800);
         });
-    });
-}
-
-// Stilul pentru animația de rotație (spin) a iconiței ↻
-if (!document.getElementById('spin-style')) {
-    const style = document.createElement('style');
-    style.id = 'spin-style';
-    style.textContent = `
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-    `;
-    document.head.appendChild(style);
-}
-
+    }
 });
 
 // Spin animation helper styling
@@ -200,4 +164,3 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-.appendChild(style);
