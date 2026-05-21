@@ -117,8 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Get form values for visual validation
             const name = form.querySelector('#name').value.trim();
             const phone = form.querySelector('#phone').value.trim();
+            const email = form.querySelector('#email').value.trim();
             
-            if (!name || !phone) {
+            if (!name || !phone || !email) {
                 alert('Please enter your name and phone number so we can contact you.');
                 return;
             }
