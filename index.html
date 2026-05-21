@@ -1618,7 +1618,7 @@ footer {
     </section>
 
     <!-- Contact & Quote Form Section -->
-    <section class="contact-section scroll-reveal" id="contact">
+     <section class="contact-section scroll-reveal" id="contact">
         <div class="section-container">
             <div class="contact-layout">
                 <div class="contact-info">
@@ -1647,71 +1647,60 @@ footer {
                     </div>
                 </div>
                 
-               <div class="quote-form-card">
-    <h3 class="form-title">Request A Free Quote</h3>
-    <!-- 1. Am adăugat action și method pe form-ul tău -->
-    <form class="quote-form" id="quote-request-form" action="https://web3forms.com" method="POST">
-        
-        <!-- 2. INTRODUCERE CHEIE WEB3FORMS (Înlocuiește textul de mai jos cu cheia ta reală) -->
-        <input type="hidden" name="access_key" value="b1ac9e9d-245a-4f00-99dc-c646be72de0e">
-        
-        <!-- 3. Subiectul emailului pe care îl vei primi (Opțional, dar util ca să știi de unde vine) -->
-        <input type="hidden" name="subject" value="New Quote Request from FastFixes">
-        
-        <!-- 4. Protectie Anti-Spam Honeypot (Rămâne complet invizibil pe site) -->
-        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                <div class="quote-form-card">
+                    <h3 class="form-title">Request A Free Quote</h3>
+                      <form class="quote-form" id="quote-request-form" action="https://web3forms.com" method="POST">
+                      <input type="hidden" name="access_key" value="b1ac9e9d-245a-4f00-99dc-c646be72de0e">
+                        <input type="hidden" name="subject" value="New Quote Request from FastFixes">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name *</label>
+                                <input type="text" id="name" class="form-input" placeholder="e.g. John Smith" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <input type="tel" id="phone" class="form-input" placeholder="e.g. 07123 456789" required>
+                            </div>
 
-        <div class="form-grid">
-            <div class="form-group">
-                <label for="name" class="form-label">Full Name *</label>
-                <!-- Am adăugat name="name" -->
-                <input type="text" id="name" name="name" class="form-input" placeholder="e.g. John Smith" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="phone" class="form-label">Phone Number *</label>
-                <!-- Am adăugat name="phone" -->
-                <input type="tel" id="phone" name="phone" class="form-input" placeholder="e.g. 07123 456789" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="location" class="form-label">Select Location *</label>
-                <!-- Am adăugat name="location" -->
-                <select id="location" name="location" class="form-select" required>
-                    <option value="" disabled selected>Select your city...</option>
-                    <option value="newcastle">Newcastle upon Tyne</option>
-                    <option value="gateshead">Gateshead</option>
-                    <option value="sunderland">Sunderland</option>
-                    <option value="hexham">Hexham</option>
-                    <option value="durham">Durham</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="service" class="form-label">Select Service</label>
-                <!-- Am adăugat name="service" -->
-                <select id="service" name="service" class="form-select">
-                    <option value="wood">Wood Restoration & Scratch Repair</option>
-                    <option value="leather">Leather & Vinyl Repair</option>
-                    <option value="upholstery">Reupholstery & Sofa Padding</option>
-                    <option value="antique">Antique Furniture Restoration</option>
-                    <option value="other">Other / Joinery Repair</option>
-                </select>
-            </div>
-            
-            <div class="form-group full-width">
-                <label for="message" class="form-label">Describe the damage/furniture *</label>
-                <!-- Am adăugat name="message" -->
-                <textarea id="message" name="message" class="form-textarea" placeholder="Describe the item (e.g. mahogany dining table, 3-seater leather sofa) and what repairs are needed." required></textarea>
-            </div>
-        </div>
-        
-        <button type="submit" class="btn btn-primary btn-form" id="submit-quote-btn">Submit Quote Request ➜</button>
-        
-        <div class="form-feedback" id="quote-form-feedback"></div>
-    </form>
-</div>
-
+                            <div class="form-group">
+                                <label for="email" class="form-label">Emai Adress *</label>
+                                <input type="tel" id="phone" class="form-input" placeholder="you@company.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="location" class="form-label">Select Location *</label>
+                                <select id="location" class="form-select" required>
+                                    <option value="" disabled selected>Select your city...</option>
+                                    <option value="newcastle">Newcastle upon Tyne</option>
+                                    <option value="gateshead">Gateshead</option>
+                                    <option value="sunderland">Sunderland</option>
+                                    <option value="hexham">Hexham</option>
+                                    <option value="durham">Durham</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="service" class="form-label">Select Service</label>
+                                <select id="service" class="form-select">
+                                    <option value="wood">Wood Restoration & Scratch Repair</option>
+                                    <option value="leather">Leather & Vinyl Repair</option>
+                                    <option value="upholstery">Reupholstery & Sofa Padding</option>
+                                    <option value="antique">Antique Furniture Restoration</option>
+                                    <option value="other">Other / Joinery Repair</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label for="message" class="form-label">Describe the damage/furniture *</label>
+                                <textarea id="message" class="form-textarea" placeholder="Describe the item (e.g. mahogany dining table, 3-seater leather sofa) and what repairs are needed." required></textarea>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-form" id="submit-quote-btn">Submit Quote Request ➜</button>
+                        
+                        <div class="form-feedback" id="quote-form-feedback"></div>
+                    </form>
                 </div>
             </div>
         </div>
