@@ -785,9 +785,9 @@ section {
 }
 
 .contact-layout {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 4rem;
+  max-width: 1200px;
+  width:  100%;
+  margin: 0 auto;
 }
 
 .contact-info {
