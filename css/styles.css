@@ -212,6 +212,7 @@ header {
     box-shadow: 0 6px 15px rgba(217, 119, 6, 0.4);
 }
 
+    /* hero section */
 .hero {
     position: relative;
     min-height: 90vh;
@@ -238,8 +239,8 @@ header {
 
 .hero-container {
   max-width: 1200px;
+  width:  100%;
   margin: 0 auto;
-  padding: 0 1.5rem;
 }
 
 .hero-content {
