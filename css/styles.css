@@ -864,10 +864,15 @@ section {
     margin-bottom: 2rem;
 }
 
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+.form-grid .hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+    background: radial-gradient(circle at top right, rgba(217, 119, 6, 0.08), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(194, 65, 12, 0.05), transparent 40%);
+    overflow: hidden;
 }
 
 .form-group {
