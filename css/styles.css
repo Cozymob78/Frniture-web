@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
+
 :root {
     /* Color Palette */
     --bg-dark: #121214;
@@ -208,7 +209,7 @@ header {
 
 .btn-phone-mobile:hover {
     transform: translateY(-1px);
-    box-shadow: 0 6px 15px rgba(3, 175, 49, 0.4);
+    box-shadow: 0 6px 15px rgba(217, 119, 6, 0.4);
 }
 
 /* Hero Section */
