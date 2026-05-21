@@ -212,65 +212,131 @@ header {
     box-shadow: 0 6px 15px rgba(217, 119, 6, 0.4);
 }
 
-/* Hero Section */
-hero {
-  height: 100vh;
-  min-height: 600px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  padding-top: 80px;
+.hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+    background: radial-gradient(circle at top right, rgba(217, 119, 6, 0.08), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(194, 65, 12, 0.05), transparent 40%);
+    overflow: hidden;
 }
-.hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  z-index: -2;
-  filter: brightness(0.4);
+
+.hero-overlay-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+    mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    pointer-events: none;
 }
-.hero-gradient {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(11,17,33,1) 0%, rgba(11,17,33,0.3) 100%);
-  z-index: -1;
+
+.hero-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 10;
 }
 
 .hero-content {
-  max-width: 800px;
-}
-.hero-tag {
-  display: inline-block;
-  padding: 0.4rem 1rem;
-  background: rgba(245, 158, 11, 0.2);
-  color: var(--primary);
-  border-radius: 50px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  border: 1px solid rgba(245, 158, 11, 0.3);
-}
-.hero h1 {
-  font-size: 4rem;
-  margin-bottom: 1.5rem;
-}
-.hero p {
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  margin-bottom: 2.5rem;
-  max-width: 600px;
+    animation: fadeInUp 1s ease-out;
 }
 
-.hero-btns {
-  display: flex;
-  gap: 1rem;
+.badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(217, 119, 6, 0.1);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 50px;
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.hero-title {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero-title span {
+    background: linear-gradient(to right, #fff, #a1a1aa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-title em {
+    font-style: italic;
+    color: var(--primary);
+}
+
+.hero-desc {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    box-shadow: 0 4px 20px rgba(217, 119, 6, 0.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(217, 119, 6, 0.45);
+    background: linear-gradient(135deg, var(--primary-hover), var(--secondary));
+}
+
+.btn-outline {
+    border: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-light);
+    backdrop-filter: blur(5px);
+}
+
+.btn-outline:hover {
+    border-color: var(--primary);
+    background: rgba(217, 119, 6, 0.05);
+    transform: translateY(-3px);
+}
+
+.hero-visual {
+    position: relative;
+    width: 100%;
+    animation: fadeIn 1.2s ease-out;
 }
 
 /* Card glass wrapper */
