@@ -359,32 +359,26 @@
                                 <label for="phone" class="form-label">Phone Number *</label>
                                 <input type="tel" id="phone" class="form-input" placeholder="e.g. 07123 456789" required>
                             </div>
-                            
-                            <div class="form-group">
-                                <label for="location" class="form-label">Select Location *</label>
-                                <select id="location" class="form-select" required>
-                                    <option value="" disabled selected>Select your city...</option>
-                                    <option value="newcastle">Newcastle upon Tyne</option>
-                                    <option value="gateshead">Gateshead</option>
-                                    <option value="sunderland">Sunderland</option>
-                                    <option value="hexham">Hexham</option>
-                                    <option value="durham">Durham</option>
-                                </select>
+
+                             <div class="form-group">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" id="email" class="form-input" placeholder="e.g. you@company.com" required>
                             </div>
+
+                              <div class="form-group">
+          <label>Fotografii (opțional)</label>
+          <div class="upload-zone" id="uploadZone">
+            <input type="file" id="f-images" accept="image/*" multiple onchange="handleFiles(this.files)">
+            <div class="upload-icon">📷</div>
+            <div class="upload-label">
+              <b>Adaugă fotografii</b> sau trage aici<br>
+              <small>JPG, PNG, WEBP · max 5 imagini · 10MB fiecare</small>
+            </div>
+          </div>
+           
                             
-                            <div class="form-group">
-                                <label for="service" class="form-label">Assembly Service *</label>
-                                <select id="service" class="form-select" required>
-                                    <option value="" disabled selected>Select service...</option>
-                                    <option value="kitchen">Kitchen Assembly</option>
-                                    <option value="wardrobe">Wardrobe & Closet Assembly</option>
-                                    <option value="tables">Table & Chair Assembly</option>
-                                    <option value="office">Office Furniture Assembly</option>
-                                    <option value="sliding">Sliding Door Assembly</option>
-                                    <option value="upholstery">Upholstered Furniture Assembly</option>
-                                    <option value="other">Other Assembly</option>
-                                </select>
-                            </div>
+                            
+                            
                             
                             <div class="form-group full-width">
                                 <label for="message" class="form-label">Describe your furniture & requirements *</label>
