@@ -348,7 +348,8 @@
                 
                 <div class="quote-form-card">
                     <h3 class="form-title">Request A Free Quote</h3>
-                    <form class="quote-form" id="quote-request-form">
+                    <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                        <input type="hidden" name="access_key" value="b1ac9e9d-245a-4f00-99dc-c646be72de0e">
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="name" class="form-label">Full Name *</label>
@@ -388,6 +389,7 @@
                         
                         <button type="submit" class="btn btn-primary btn-form" id="submit-quote-btn">Submit Quote Request ➜</button>
                         <div class="form-feedback" id="quote-form-feedback"></div>
+                        <input type="hidden" name="redirect" value="https://furniturerepair.fastfixes.co.uk/thank-you.html">    
                     </form>
                 </div>
             </div>
